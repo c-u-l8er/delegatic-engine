@@ -1,0 +1,15 @@
+# Elixir build artifacts
+_build/
+deps/
+*.beam
+*.ez
+
+# Dialyzer
+priv/plts/*.plt
+priv/plts/*.plt.hash
+
+# Editor
+.elixir_ls/
+
+# System
+.DS_Store
