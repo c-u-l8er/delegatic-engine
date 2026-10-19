@@ -15,7 +15,7 @@ defmodule Delegatic.MCP.Server do
   Consumers (body-browser-mcp, body-os-mcp, FleetPrompt InstallEngine,
   Graphonomous replay flows) can call `delegatic_authorize` over MCP
   to obtain the fresh block they need to pass into each destructive
-  edge per OS-011 §4.4.
+  edge per GRASP §4.4.
   """
 
   use Anubis.Server,

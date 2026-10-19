@@ -2,7 +2,7 @@ defmodule Delegatic.Policy do
   @moduledoc """
   A `Policy` defines the authorization rules for a named `policy_id`.
   Policies live in the Delegatic PolicyStore and are referenced by
-  the `policy_id` field of an OS-011 AuthorizationBlock (e.g.
+  the `policy_id` field of a GRASP AuthorizationBlock (e.g.
   `delegatic://workspace_42/deploy`).
 
   The minimal kernel supports:

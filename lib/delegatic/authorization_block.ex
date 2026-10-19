@@ -1,6 +1,6 @@
 defmodule Delegatic.AuthorizationBlock do
   @moduledoc """
-  The OS-011 §4.4 AuthorizationBlock — a transient proof-of-authorization
+  The GRASP §4.4 AuthorizationBlock — a transient proof-of-authorization
   issued by Delegatic to cover exactly one destructive-edge execution.
 
   Contract (strict):
@@ -58,7 +58,7 @@ defmodule Delegatic.AuthorizationBlock do
   end
 
   @doc """
-  Serialize a block to the canonical OS-011 JSON-ready map shape.
+  Serialize a block to the canonical GRASP JSON-ready map shape.
   """
   @spec to_map(t()) :: map()
   def to_map(%AuthorizationBlock{} = b) do

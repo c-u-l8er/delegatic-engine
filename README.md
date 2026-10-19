@@ -2,7 +2,7 @@
 
 OS-006 Governance Shim — authorization kernel for the [&] Protocol ecosystem.
 
-Issues signed, expiring `AuthorizationBlock`s to destructive edges in OS-011 `&body.*` replay flows. Policy-based, deny-by-default, pluggable policy store.
+Issues signed, expiring `AuthorizationBlock`s to destructive edges in GRASP `&body.*` replay flows. Policy-based, deny-by-default, pluggable policy store.
 
 ## Status
 
@@ -23,9 +23,9 @@ delegatic_authorize        — issue a fresh AuthorizationBlock
 delegatic_verify           — verify a block's HMAC signature + TTL
 ```
 
-Remote agents (body-browser-mcp, body-os-mcp, FleetPrompt's InstallEngine, Graphonomous replay flows) call `delegatic_authorize` to obtain the fresh blocks they need for destructive edges per OS-011 §4.4.
+Remote agents (body-browser-mcp, body-os-mcp, FleetPrompt's InstallEngine, Graphonomous replay flows) call `delegatic_authorize` to obtain the fresh blocks they need for destructive edges per GRASP §4.4.
 
-This is the *authorization kernel* — the minimum needed to close the OS-011 destructive-edge loop. The full Delegatic spec (`delegatic.com/docs/spec/`) layers on org trees, memberships, effective-policy computation, and a LiveView dashboard; those are future work.
+This is the *authorization kernel* — the minimum needed to close the GRASP destructive-edge loop. The full Delegatic spec (`delegatic.com/docs/spec/`) layers on org trees, memberships, effective-policy computation, and a LiveView dashboard; those are future work.
 
 ## Contract
 
@@ -51,7 +51,7 @@ This is the *authorization kernel* — the minimum needed to close the OS-011 de
     approved_by: "supervisor@acme"
   )
 
-# 3. Or build a function ready for the OS-011 Replay `:authorizer` slot
+# 3. Or build a function ready for the GRASP Replay `:authorizer` slot
 authorizer =
   Delegatic.authorizer_for(
     policy_id: "delegatic://ws-42/ops",
@@ -86,9 +86,9 @@ The HMAC key lives in `config :delegatic, :hmac_key`. A per-process random fallb
 3. **`action not in allow_actions`** → `{:error, :not_in_allowlist}` (deny-by-default)
 4. Otherwise → `:ok`
 
-## Wiring Delegatic into OS-011 replay
+## Wiring Delegatic into GRASP replay
 
-The OS-011 spec §4.4 requires that every destructive replay edge obtain a *fresh* authorization — prior authorization does not carry. Delegatic's `authorizer_for/1` returns a function that re-issues a new block on every call, producing exactly the semantics OS-011 demands:
+The GRASP spec §4.4 requires that every destructive replay edge obtain a *fresh* authorization — prior authorization does not carry. Delegatic's `authorizer_for/1` returns a function that re-issues a new block on every call, producing exactly the semantics GRASP demands:
 
 ```elixir
 # Recorded trace: destructive edges carry OLD authorization blocks
@@ -110,7 +110,7 @@ mix test
 
 - `delegatic.com/docs/spec/README.md` — full v0.2 spec (organizations, memberships, effective policy, dashboard)
 - `opensentience.org/docs/spec/OS-011-EMBODIMENT.md` §4.4 — AuthorizationBlock contract
-- `body-os/` + `body-browser/` — OS-011 providers whose Replay flows consume Delegatic authorizers
+- `body-os/` + `body-browser/` — GRASP providers whose Replay flows consume Delegatic authorizers
 
 ## License
 

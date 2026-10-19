@@ -1,7 +1,7 @@
 defmodule Delegatic.PolicyStore do
   @moduledoc """
   In-memory policy store backed by an ETS table. Policies are keyed by
-  their `policy_id` string — the same string referenced in OS-011
+  their `policy_id` string — the same string referenced in GRASP
   `AuthorizationBlock.policy_id`.
 
   A production deployment would swap this for a Postgres-backed store

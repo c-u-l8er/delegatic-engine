@@ -1,7 +1,7 @@
 defmodule Delegatic.IntegrationTest do
   @moduledoc """
   End-to-end integration: Delegatic authorizer drives real body provider
-  replay flows. This is the proof that OS-006 Governance + OS-011
+  replay flows. This is the proof that OS-006 Governance + GRASP
   Embodiment wire together end-to-end.
 
   Requires sibling path deps on body-browser + body-os to exercise

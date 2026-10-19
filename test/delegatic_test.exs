@@ -5,7 +5,7 @@ defmodule DelegaticTest do
   Covers: Policy semantics (deny-by-default, allow/deny order,
   agent filtering), AuthorizationBlock signing + verification, TTL
   capping, and the `authorizer_for/1` helper that slots directly
-  into OS-011 Replay flows.
+  into GRASP Replay flows.
   """
   use ExUnit.Case, async: false
 

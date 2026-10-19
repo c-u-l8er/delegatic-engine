@@ -13,7 +13,7 @@ defmodule Delegatic.MixProject do
       name: "delegatic",
       description:
         "OS-006 Governance Shim — authorization kernel for the [&] Protocol ecosystem. " <>
-          "Issues fresh AuthorizationBlocks to destructive edges in OS-011 &body.* replay flows. " <>
+          "Issues fresh AuthorizationBlocks to destructive edges in GRASP &body.* replay flows. " <>
           "Policy-based deny-by-default; pluggable policy store.",
       source_url: "https://github.com/c-u-l8er/delegatic"
     ]
